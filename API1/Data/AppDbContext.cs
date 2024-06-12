@@ -11,9 +11,16 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Aluno> Alunos { get; set; } 
-    public DbSet<Professor> Professor { get; set; }
-    public DbSet<Curso> Curso { get; set; }
+    public DbSet<Professor> Professores { get; set; }
+    public DbSet<Curso> Cursos { get; set; }
     public DbSet<Disciplina> Disciplinas { get; set; }
     public DbSet<Turma> Turmas { get; set; }
     public DbSet<Nota> Notas { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);   
+        
+    }
 }
