@@ -13,7 +13,7 @@ public class AlunoServices : IAlunoRepository
     public async Task<Aluno> Login(string username, string password)
     {
         var client = new HttpClient();
-        string url = "https://localhost:7239/api/Alunos/" + username + "/" + password;
+        string url = "https://localhost:7029/api/Alunos/" + username + "/" + password;
         client.BaseAddress = new Uri(url);  
         HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
         if (response.IsSuccessStatusCode)

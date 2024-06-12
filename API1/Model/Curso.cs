@@ -1,8 +1,9 @@
-﻿namespace API.Models;
+﻿using API.Model;
 
-public class Curso
+namespace API.Models;
+
+public class Curso : Base
 {
-    public int Id { get; set; }
     public string? Nome { get; set; }
     public List<Disciplina>? Disciplinas { get; set; }
 }
