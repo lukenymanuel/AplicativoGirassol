@@ -1,9 +1,16 @@
-﻿namespace API.Models;
+﻿using API.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 
-public class Turma
+namespace API.Models;
+
+public class Turma : Base
 {
-    public int Id { get; set; }
     public string? Nome { get; set; }
-    public Curso? Curso { get; set; }
+    public int CursoId { get; set; }
 
+    public Curso? Curso { get; set; }
+    [NotMapped]
+    public Disciplina? Disciplina { get; set; } = null;
+    [NotMapped]
+    public Professor? Professor { get; set; } = null;
 }

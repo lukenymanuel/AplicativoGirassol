@@ -1,11 +1,15 @@
-﻿namespace API.Models;
+﻿using API.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 
-public class Disciplina
+namespace API.Models;
+
+public class Disciplina : Base
 {
-    public int Id { get; set; }
+
     public string? Nome { get; set; }
-    public Curso? Curso { get; set; }
+    public int CursoId { get; set; }
     public List<Turma>? Turmas { get; set; }
-    public string? MatrizProva
-        { get; set; }
+    // propriedade de navegação
+    [NotMapped]
+    public Curso? Curso { get; set; }
 }
